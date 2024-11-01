@@ -35,7 +35,7 @@ namespace PumpkinCatch
         private void InitializePlayer()
         {
             DirectoryInfo d = new DirectoryInfo($@"{Environment.CurrentDirectory}\Music");
-            FileInfo[] Files = d.GetFiles("*.mp3"); 
+            FileInfo[] Files = d.GetFiles("*.mp3");
             string str = "";
             foreach (FileInfo file in Files)
             {
@@ -90,7 +90,7 @@ namespace PumpkinCatch
 
         private void Player_MediaEnded(object? sender, EventArgs e)
         {
-            if (IdMusic < musicList.Count-1)
+            if (IdMusic < musicList.Count - 1)
                 IdMusic++;
             else
                 IdMusic = 0;
@@ -114,10 +114,18 @@ namespace PumpkinCatch
             if (e.Key == Key.Left)
             {
                 playerObject.X -= 15;
+                if (playerObject.X < -150)
+                {
+                    playerObject.X = Width;
+                }
             }
             else if (e.Key == Key.Right)
             {
                 playerObject.X += 15;
+                if (playerObject.X > ((Canvas)playerObject.Parent).Width)
+                {
+                    playerObject.X = -150;
+                }
             }
         }
     }
