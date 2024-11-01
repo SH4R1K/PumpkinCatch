@@ -41,6 +41,11 @@ namespace PumpkinCatch
             {
                 musicList.Add(file.Name);
             }
+            if (musicList.Count == 0)
+            {
+                MessageBox.Show("Кто-то удалил всю музыку :(");
+                return;
+            }
             musicList.Shuffle();
             player.Volume = 0.1;
             player.IsMuted = false;
@@ -85,7 +90,7 @@ namespace PumpkinCatch
 
         private void Player_MediaEnded(object? sender, EventArgs e)
         {
-            if (IdMusic < musicList.Count)
+            if (IdMusic < musicList.Count-1)
                 IdMusic++;
             else
                 IdMusic = 0;

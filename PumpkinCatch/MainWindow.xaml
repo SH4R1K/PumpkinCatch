@@ -8,11 +8,10 @@
         mc:Ignorable="d"
         Title="PumpkinCatch" Height="720" Width="1280" PreviewKeyDown="Window_PreviewKeyDown">
 
-    <Viewbox>
+    <Viewbox Stretch="Fill">
         <Canvas x:Name="gameFieldCanvas" Width="1280" Height="720">
             <TextBlock x:Name="scoreTextBlock" Text="Score: 0" Canvas.Left="28" Canvas.Top="10" FontSize="64" Foreground="AliceBlue"/>
             <Objects:Player x:Name="playerObject" Canvas.Left="28" Canvas.Top="541" />
-            <!--MediaElement x:Name="mediaElement" Source="/Assets/caramelladansen.mp3" Volume="0.1"/-->
             <Canvas.Background>
                 <ImageBrush ImageSource="Assets/background.jpg" Stretch="Fill"/>
             </Canvas.Background>
